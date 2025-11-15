@@ -22,6 +22,9 @@ export default defineConfig({
   esbuild: {
     target: 'esnext',
   },
+  ssr: {
+    noExternal: ['react-idle-timer'],
+  },
   optimizeDeps: {
     // Explicitly include fast-glob, since it gets dynamically imported and we
     // don't want that to cause a re-bundle.
