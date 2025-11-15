@@ -1,11 +1,15 @@
 services:
   - type: web
     name: propose-anyone
-    runtime: node
+    runtime: static
     rootDir: apps/web
     buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: npm start
+    staticPublishPath: ./build/client
     envVars:
       - key: NODE_VERSION
         value: 20.11.0
-    plan: free
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
