@@ -2,8 +2,9 @@ services:
   - type: web
     name: propose-anyone
     runtime: static
-    buildCommand: cd apps/web && npm install --legacy-peer-deps && npm run build
-    staticPublishPath: apps/web/build/client
+    rootDir: apps/web
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    staticPublishPath: build/client
     envVars:
       - key: NODE_VERSION
         value: 20.11.0
